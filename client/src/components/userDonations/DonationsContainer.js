@@ -29,6 +29,12 @@ class DonationsContainer extends React.Component {
         .catch(err => console.log(err));
       };
 
+      deleteDonation = id => {
+        API.deleteDonation(id)
+          .then(res => this.loadDonations())
+          .catch(err => console.log(err));
+      };
+
 
     //   loadDonations = () => {
     //     // temporary hard coded to uid 3
@@ -60,7 +66,7 @@ class DonationsContainer extends React.Component {
           <div className="media-content">
             <div className="content">
               <p>
-                <strong>Item:</strong> <small>{donation.name}</small><small>1m</small>
+                <strong>Item:</strong> <small>{donation.name}</small><small >1m</small>
                 <br />
                 <small>{donation.description}</small>
               </p>

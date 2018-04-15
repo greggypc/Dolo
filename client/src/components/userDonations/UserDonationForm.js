@@ -1,10 +1,43 @@
 import React from 'react';
+import API from "../../utils/APIdonations";
+
 // import Row from "../grid/Row";
 // import Col from "../grid/Col";
 
 
 class UserDonationForm extends React.Component {
 
+  state = {
+    name: "",
+    description: "",
+    category: "",
+    uid: ""
+  };
+
+  // handle any changes to the input fields
+  handleInputChange = event => {
+  // Pull the name and value properties off of the event.target (the element which triggered the event)
+  const { name, value } = event.target;
+
+  //Set the state for the appropriate input field
+  this.setState({
+  [name]: value
+   });
+   };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    if (this.state.name && this.state.description) {
+      API.saveDonation({
+        name: this.state.name,
+        description: this.state.description,
+        category: this.state.category
+      })
+        .then(res => this.loadDonations())
+        .catch(err => console.log(err));
+    }
+  };
 
   render() {
     return (
@@ -23,7 +56,12 @@ class UserDonationForm extends React.Component {
                               <label className="label">Item</label>
                               <div className="control">
 
-                                <input className="input" type="text" id="donation-name" placeholder="Item Name" />
+                                <input className="input"  
+                                       type="text" 
+                                       id="donation-name" 
+                                       placeholder="Item Name"
+                                       value={this.state.name}
+                                       onChange={this.handleInputChange} />
 
                               </div>
                             </div>
@@ -32,7 +70,8 @@ class UserDonationForm extends React.Component {
                                     <label className="label">Category</label>
                                     <div className="control">
                                       <div className="select">
-                                        <select className="form-control" id="donation-category">
+                                        <select className="form-control" id="donation-category" 
+                                          ref="selectCategory" onChange={ event => this.handleInputChange(event)}>
                                             <option value="1">Clothes</option>
                                             <option value="2">Food</option>
                                             <option value="3">Furniture</option>
@@ -47,7 +86,13 @@ class UserDonationForm extends React.Component {
                               <div className="field">
                                   <label className="label">Description</label>
                                     <div className="control">
-                                      <textarea className="textarea" id="donation-description" placeholder="Textarea"></textarea>
+                                      <textarea 
+                                        className="textarea" 
+                                        id="donation-description" 
+                                        placeholder="Textarea"
+                                        value={this.state.description}
+                                        onChange={this.handleInputChange}>
+                                      </textarea>
                                     </div>
                                 </div>
                          
@@ -77,7 +122,7 @@ class UserDonationForm extends React.Component {
                               <span className="icon">
                                 <i className="fa fa-arrow-right" aria-hidden="true"></i>
                               </span>
-                            <button  id="submit">Post</button>
+                            <button  onClick={() => this.handleFormSubmit}  id="submit">Post</button>
                           </a>
                         </div>
                       </div>

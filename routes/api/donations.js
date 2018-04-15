@@ -8,11 +8,11 @@ router
   .post(donationsController.create);
 
 // Matches with "/api/donations/:id"
-// router
-//   .route("/:id")
+ router
+   .route("/:id")
 //   .get(donationsController.findById)
 //   .put(donationsController.update)
-//   .delete(donationsController.destroy);
+   .delete(donationsController.destroy);
 
 // Matches with "/api/donations/id/:id"
 // 'put' for updating a donation

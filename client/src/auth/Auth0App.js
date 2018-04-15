@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div>
         <nav className="blue">
-        <a href="#" className="brand-logo left-align">Dolo</a>
+        <a href="/" className="brand-logo left-align">Dolo</a>
           <div className="nav-wrapper right-align">
 
             <button

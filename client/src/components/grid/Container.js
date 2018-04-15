@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const Container = ({ children }) => (
-  <div className="container">
-    { children }
+const Container = props => (
+  <div className={`container${props.fluid ? " is-fluid" : ""}`}>
+    {props.children}
   </div>
 );
 

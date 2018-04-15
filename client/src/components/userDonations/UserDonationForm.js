@@ -1,6 +1,6 @@
 import React from 'react';
-import Row from "../grid/Row";
-import Col from "../grid/Col";
+// import Row from "../grid/Row";
+// import Col from "../grid/Col";
 
 
 class UserDonationForm extends React.Component {

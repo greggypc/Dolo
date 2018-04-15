@@ -1,0 +1,24 @@
+{
+  "name": "Dolo",
+  "version": "1.0.0",
+  "description": "Donation Location App",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "client": "node scripts/start-client.js",
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.37.6"
+  }
+}

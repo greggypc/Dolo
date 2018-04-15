@@ -44,13 +44,14 @@ app.get("/api/donations/", function(req, res) {
 
 
  //GET route for returning all Donations of a specific user
- app.get("/api/donations/uid", function(req, res) {
+ app.get("/api/donations/:uid", function(req, res) {
   db.Donation.findAll({
     where: {
       uid: 3
     }
   })
   .then(function(dbDonation) {
+    console.log("getting donations from uid 3 only");
     res.json(dbDonation);
   });
 });

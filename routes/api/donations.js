@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const donationsController = require("../../controllers/donationsController");
 
-// Matches with "/api/donations/:uid"
+// Matches with "/api/donations/uid"
 router
   .route("/:uid")
   .get(donationsController.findAll)

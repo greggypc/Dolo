@@ -17,12 +17,7 @@ const UserProfile = ({ children }) => (
              <div className="card-user-name" id="name">
                <a className="user-name">User name</a>
              </div>
-             <div className="card-user-city" id="city">
-                 <a className="user-city">User city</a>
-               </div>
-               <div className="card-user-state" id="state" placeholder="TX">
-                   <a className="user-state" placeholder="TX">User state</a>
-                 </div>
+             
            </div>
          </div>
        </div>
@@ -41,7 +36,7 @@ const UserProfile = ({ children }) => (
          <p><a href="">City: </a><small><span className="user-city"></span></small></p>
          <p><a href="">State: </a><small><span className="user-state"></span></small></p>
          <p><a href="">Zip: </a><small><span className="user-zip"></span></small></p>
-         <p><a href="">Social: </a><small>facebook.com</small></p>
+         <p><a href="">Total Giving: </a><small>$86.75</small></p>
          </div>
        </div>
      </div>

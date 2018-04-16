@@ -1,7 +1,9 @@
 import React from "react";
 
 export const ListItem = props => (
-  <li className="list-group-item">
+  <li className="box">
     {props.children}
   </li>
 );
+
+export default ListItem;

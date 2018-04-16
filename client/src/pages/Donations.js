@@ -25,10 +25,7 @@ class Donations extends React.Component {
        </div>
 
       <div className="column is-one-half">
-        <div className="box">
-          <p className="has-text-centered is-info" id="title"><strong>Your Donations</strong></p>
-          <DonationsContainer/>
-        </div>
+       <DonationsContainer/>
       </div>
       
 

@@ -36,6 +36,8 @@ class DonationsContainer extends React.Component {
       };
 
 
+
+
     //   loadDonations = () => {
     //     // temporary hard coded to uid 3
     //     axios.get('/api/donations/3')
@@ -51,7 +53,16 @@ class DonationsContainer extends React.Component {
 
       render() {
         return (
-            <div>
+            
+            <div className="card is-fullwidth ">
+           <header className="card-header hero is-info">
+               <p className="card-header-title has-text-white">
+                   Your Donations
+               </p>
+             </header>
+
+             
+           <div className="card-user card-content">
             {this.state.donations.length ? (
                 <List>
                 {this.state.donations.map(donation => (
@@ -94,6 +105,8 @@ class DonationsContainer extends React.Component {
               <h3>No Results to Display</h3>
             )}
         </div>
+        </div>
+        
         )
   }
 };

@@ -1,17 +1,14 @@
 import React from 'react';
 import API from "../../utils/APIdonations";
-
-// import Row from "../grid/Row";
-// import Col from "../grid/Col";
-
+import DonationsContainer from "./DonationsContainer";
 
 class UserDonationForm extends React.Component {
 
   state = {
     name: "",
     description: "",
-    item_categoryID: "",
-    type: "",
+    item_categoryID: "1",
+    type: "material",
     uid: "3"
   };
 
@@ -26,9 +23,16 @@ class UserDonationForm extends React.Component {
    });
    };
 
+   componentDidMount() {
+    console.log(this.state.uid);
+    console.log(this.state.item_categoryID);
+  }
+
   handleFormSubmit = event => {
-    event.preventDefault();
     console.log(this.state.name);
+    console.log(this.state.item_categoryID);
+    event.preventDefault();
+
     if (this.state.name && this.state.description) {
       API.saveDonation({
         name: this.state.name,
@@ -50,7 +54,7 @@ class UserDonationForm extends React.Component {
          <form id="donation-form">
           <header className="card-header hero is-info">
              <p className="card-header-title has-text-white">
-                      Post New Donation
+                Post New Donation
              </p>
           </header>
            <div className="card-content">
@@ -71,8 +75,9 @@ class UserDonationForm extends React.Component {
                    <label className="label">Category</label>
                    <div className="control">
                      <div className="select">
-                       <select className="form-control" id="donation-category" 
-                         ref="selectCategory" name="item_categoryID" onChange={ event => this.handleInputChange(event)}>
+                       <select className="form-control" id="donation-category"
+                         ref="selectCategory" name="item_categoryID" 
+                         value={this.state.item_categoryID} onChange={ event => this.handleInputChange(event)}>
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>
@@ -123,7 +128,7 @@ class UserDonationForm extends React.Component {
                     <span className="icon">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>
                     </span>
-                  <button onClick={() => this.handleFormSubmit}  id="submit">Post</button>
+                  <button onClick={ this.handleFormSubmit }  id="submit">Post</button>
                   </a>
               </div>
             </div>

@@ -16,7 +16,7 @@ class DonationsContainer extends React.Component {
       donations: [],
       name: "",
       description: "",
-      category: "",
+      item_categoryID: "",
       type: "",
       id: "",
       uid: ""
@@ -30,7 +30,7 @@ class DonationsContainer extends React.Component {
         // temporary hard coded to uid 3
         API.getDonations(3)
             .then(res =>
-              this.setState({ donations: res.data, name: "", description: "", category: "" })
+              this.setState({ donations: res.data, name: "", description: "", item_categoryID: "" })
             )
         .catch(err => console.log(err));
       };

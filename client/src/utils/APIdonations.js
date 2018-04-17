@@ -15,6 +15,6 @@ export default {
   },
   // Saves a donation to the database
   saveDonation: function(donationData) {
-    return axios.post("/api/donations/", donationData);
+    return axios.post("/api/donations", donationData);
   }
 };

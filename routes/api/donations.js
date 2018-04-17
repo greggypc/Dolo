@@ -11,7 +11,7 @@ router
  router
    .route("/:id")
  //  .get(donationsController.findById)
- //  .put(donationsController.update)
+   .put(donationsController.update)
    .delete(donationsController.destroy);
 
 // Matches with "/api/donations/id/:id"

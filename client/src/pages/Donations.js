@@ -25,15 +25,12 @@ class Donations extends React.Component {
         <UserProfile />
        </div>
 
-      <div className="column is-one-half">
-       <DonationsContainer/>
-      </div>
+      <DonationsContainer />
+    
       
 
-       <div className="column is-one-quarter">
-          <UserDonationForm />
-        </div>
-      </div>
+       
+      </div> 
       
       <Footer />
     </div>

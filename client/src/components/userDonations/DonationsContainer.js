@@ -1,15 +1,10 @@
 import React from "react";
-//import axios from "axios";
-//import { Link } from "react-router-dom";
-import { List, ListItem } from "../list";
+//import { List, ListItem } from "../list";
 import API from "../../utils/APIdonations";
+import UserDonations from "./UserDonations";
+import UserDonationForm from "./UserDonationForm";
 
 
-const cardTable = {
-  maxHeight: 645,
-  overflowy: "scroll",
-  overflowx: "hidden"
-  }
 
 class DonationsContainer extends React.Component {
     state = {
@@ -17,87 +12,94 @@ class DonationsContainer extends React.Component {
       name: "",
       description: "",
       item_categoryID: "",
-      type: "",
+      type: "material",
       id: "",
-      uid: ""
+      uid: "3",
+      updating: false
     };
       
       componentDidMount() {
         this.loadDonations();
       }
-    
-      loadDonations = () => {
-        // temporary hard coded to uid 3
-        API.getDonations(3)
-            .then(res =>
-              this.setState({ donations: res.data, name: "", description: "", item_categoryID: "" })
-            )
-        .catch(err => console.log(err));
-      };
 
-      deleteDonation = id => {
-        API.deleteDonation(id)
+    loadDonations = () => {
+      // temporary hard coded to uid 3
+      API.getDonations(3)
+          .then(res =>
+            this.setState({ donations: res.data, name: "", description: "", item_categoryID: "", type: "", id: "", uid: "" })
+          )
+      .catch(err => console.log(err));
+    };
+
+    // handle any changes to the input fields
+    handleInputChange = event => {
+    // Pull the name and value properties off of the event.target (the element which triggered the event)
+    const { name, value } = event.target;
+    console.log(this.state.donations);
+
+    //Set the state for the appropriate input field
+    this.setState({
+    [name]: value
+     });
+     };
+
+    handleFormSubmit = event => {
+      console.log(this.state.name);
+      console.log(this.state.item_categoryID);
+      event.preventDefault();
+  
+      if (this.state.name && this.state.description) {
+        API.saveDonation({
+          name: this.state.name,
+          description: this.state.description,
+          item_categoryID: parseInt(this.state.item_categoryID),
+          type: "material",
+          uid: 3
+        })
           .then(res => this.loadDonations())
           .catch(err => console.log(err));
-      };
+      }
+    };  
+
+    editDonation = id => {
+      API.editDonation(id)
+        .then(res => this.handleInputChange())
+        .catch(err => console.log(err));
+    };
+
+    deleteDonation = id => {
+      API.deleteDonation(id)
+        .then(res => this.loadDonations())
+        .catch(err => console.log(err));
+    };
 
 
       render() {
         return (
-            
-            <div className="card is-fullwidth ">
-           <header className="card-header hero is-info">
-               <p className="card-header-title has-text-white">
-                   Your Donations
-               </p>
-             </header>
-
-             
-           <div className="card-user card-content">
-            {this.state.donations.length ? (
-                <List>
-                {this.state.donations.map(donation => (
-                  <ListItem key={donation.id}>
-
-            <article className="media">
-          <div className="media-left">
-            <figure className="image is-64x64">
-              <img src="http://placehold.it/128x128" alt="Your Donation" />
-            </figure>
-          </div>
-          <div className="media-content">
-            <div className="content">
-              <p>
-                <strong>Item:</strong> <small>{donation.name}</small>
-                <br />
-                <small>{donation.description}</small>
-              </p>
+            <React.Fragment>
+            <div className="column is-one-half">
+              <UserDonations
+              donations={this.state.donations}
+              loadDonations={this.loadDonations}
+              editDonations={this.editDonations} 
+              deleteDonation={this.deleteDonation} 
+            />
             </div>
-            <nav className="level">
-              <div className="level-left">
-                <a className="level-item donationEdit"  onClick={() => this.editDonation(donation.id)}>
-                  <span className="icon is-small"><i className="edit fa fa-edit" ></i></span>Edit
-                </a>
-              </div>
 
-              <div className="level-right">
-              <a className="level-item donationDelete"  onClick={() => this.deleteDonation(donation.id)}>
-                <span className="icon is-small"><i className="fa fa-trash"></i></span>Delete
-              </a>
-              </div>
-            </nav>
-          </div>
-        </article>
-
-        </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-        </div>
-        </div>
-        
+             <div className="column is-one-quarter">
+              <UserDonationForm 
+              name={this.state.name}
+              description={this.state.description}
+              item_categoryID={this.state.item_categoryID}
+              type={this.state.type}
+              uid={this.state.uid}
+              loadDonations={this.loadDonations}
+              handleFormSubmit={this.handleFormSubmit}
+              editDonations={this.editDonations} 
+            />
+            </div> 
+            </React.Fragment>           
+          
         )
   }
 };

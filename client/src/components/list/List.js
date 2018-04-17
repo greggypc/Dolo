@@ -7,7 +7,7 @@ const cardTable = {
   overflowx: "hidden"
   }
 
-export const List = ({ children }) => {
+const List = ({ children }) => {
   return (
     <div style={cardTable}>
       <ul>
@@ -16,3 +16,5 @@ export const List = ({ children }) => {
     </div>
   );
 };
+
+export default List;

@@ -5,6 +5,12 @@ import { List, ListItem } from "../list";
 import API from "../../utils/APIdonations";
 
 
+const cardTable = {
+  maxHeight: 645,
+  overflowy: "scroll",
+  overflowx: "hidden"
+  }
+
 class DonationsContainer extends React.Component {
     state = {
       donations: [],
@@ -36,21 +42,6 @@ class DonationsContainer extends React.Component {
       };
 
 
-
-
-    //   loadDonations = () => {
-    //     // temporary hard coded to uid 3
-    //     axios.get('/api/donations/3')
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    //   };
-
-
-
       render() {
         return (
             
@@ -77,7 +68,7 @@ class DonationsContainer extends React.Component {
           <div className="media-content">
             <div className="content">
               <p>
-                <strong>Item:</strong> <small>{donation.name}</small><small >1m</small>
+                <strong>Item:</strong> <small>{donation.name}</small>
                 <br />
                 <small>{donation.description}</small>
               </p>

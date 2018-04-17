@@ -16,7 +16,7 @@ module.exports = {
     db.Donation.create({
       name: req.body.name,
       description: req.body.description,
-      uid: req.params.uid,
+      uid: req.body.uid,
       //uid: 3,
       item_categoryID: req.body.item_categoryID,
       type: req.body.type

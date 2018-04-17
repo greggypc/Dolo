@@ -28,12 +28,14 @@ class UserDonationForm extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
+    console.log(this.state.name);
     if (this.state.name && this.state.description) {
-      API.saveDonation( 3, {
+      API.saveDonation({
         name: this.state.name,
         description: this.state.description,
-        category: this.state.category
+        item_categoryID: parseInt(this.state.item_categoryID),
+        type: "material",
+        uid: 3
       })
         .then(res => this.loadDonations())
         .catch(err => console.log(err));
@@ -46,30 +48,31 @@ class UserDonationForm extends React.Component {
      <div >
         <div className="card is-fullwidth" >
          <form id="donation-form">
-              <header className="card-header hero is-info">
-                 <p className="card-header-title has-text-white">
-                          Post New Donation
-                 </p>
-              </header>
-                  <div className="card-content">
-                     <div className="field">
-                        <label className="label">Item</label>
-                           <div className="control">
-                              <input className="input"  
-                                type="text" 
-                                id="donation-name" 
-                                placeholder="Item Name"
-                                defaultValue={this.state.name}
-                                onChange={this.handleInputChange} />
-                            </div>
-                      </div>
+          <header className="card-header hero is-info">
+             <p className="card-header-title has-text-white">
+                      Post New Donation
+             </p>
+          </header>
+           <div className="card-content">
+              <div className="field">
+                 <label className="label">Item</label>
+                    <div className="control">
+                       <input className="input"
+                         name="name"  
+                         type="text" 
+                         id="donation-name" 
+                         placeholder="Item Name"
+                         value={this.state.name}
+                         onChange={this.handleInputChange} />
+                     </div>
+               </div>
 
                 <div className="field">
                    <label className="label">Category</label>
                    <div className="control">
                      <div className="select">
                        <select className="form-control" id="donation-category" 
-                         ref="selectCategory" onChange={ event => this.handleInputChange(event)}>
+                         ref="selectCategory" name="item_categoryID" onChange={ event => this.handleInputChange(event)}>
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>
@@ -85,10 +88,11 @@ class UserDonationForm extends React.Component {
                     <label className="label">Description</label>
                       <div className="control">
                         <textarea 
+                          name="description"
                           className="textarea" 
                           id="donation-description" 
                           placeholder="Textarea"
-                          defaultValue={this.state.description}
+                          value={this.state.description}
                           onChange={this.handleInputChange}>
                         </textarea>
                       </div>
@@ -114,13 +118,12 @@ class UserDonationForm extends React.Component {
                         </div>
                   </div>
                             
-                            
-                  <div className="level-right">
+                 <div className="level-right">
                   <a className="button is-info is-outlined is-small" href="">
                     <span className="icon">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>
                     </span>
-                  <button  onClick={() => this.handleFormSubmit}  id="submit">Post</button>
+                  <button onClick={() => this.handleFormSubmit}  id="submit">Post</button>
                   </a>
               </div>
             </div>

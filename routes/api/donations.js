@@ -3,7 +3,7 @@ const donationsController = require("../../controllers/donationsController");
 
 // Matches with "/api/donations/uid"
 router
-  .route("/:uid")
+  .route("/")
   .get(donationsController.findAll)
   .post(donationsController.create);
 

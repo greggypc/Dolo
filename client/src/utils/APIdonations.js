@@ -14,7 +14,7 @@ export default {
     return axios.delete("/api/donations/" + id);
   },
   // Saves a donation to the database
-  saveDonation: function(uid,donationData) {
-    return axios.post("/api/donations/" + uid, donationData);
+  saveDonation: function(donationData) {
+    return axios.post("/api/donations/", donationData);
   }
 };

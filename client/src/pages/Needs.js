@@ -1,14 +1,41 @@
-import React from "react";
+import React from "react"; 
 
-const Needs = () => (
-  <div>
-    <h1>Needs</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-      varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-      Etiam ut feugiat ex. Cras non risus mi. 
-    </p>
-  </div>
-);
+//import API from "../utils/APIneeds";
+// import Container from "../components/grid/Container";
+// import Row from "../components/grid/Row";
+// import Col from "../components/grid/Col";
+import UserProfile from "../components/UserProfile";
+import NeedsContainer from "../components/userNeeds/NeedsContainer";
+import UserDonationForm from "../components/userNeeds/UserNeedForm";
+import Footer from "../components/main/Footer";
+
+
+//
+const containerStyle = {
+  paddingTop:35
+};
+
+class Needs extends React.Component {
+
+  render() {
+    return (
+    <div style={containerStyle} className="container">
+      <div className="columns">
+      <div className="column is-one-quarter">
+        <UserProfile />
+       </div>
+
+      <NeedsContainer />
+
+      </div> 
+      
+      <Footer />
+    </div>
+    )
+  }
+  
+};
+  
 
 export default Needs;
+

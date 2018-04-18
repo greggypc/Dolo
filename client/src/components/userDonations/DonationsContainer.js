@@ -4,7 +4,11 @@ import API from "../../utils/APIdonations";
 import UserDonations from "./UserDonations";
 import UserDonationForm from "./UserDonationForm";
 
-
+const cardTable = {
+  maxHeight: 470,
+  overflowY: "scroll",
+  overflowX: "hidden"
+  }
 
 class DonationsContainer extends React.Component {
     state = {
@@ -77,7 +81,15 @@ class DonationsContainer extends React.Component {
       render() {
         return (
             <React.Fragment>
-            <div className="column is-one-half">
+         
+            <div className="column is-one-half" >
+            <div className="card is-fullwidth ">
+            <header className="card-header hero is-info">
+            <p className="card-header-title has-text-white">
+              Your Donations
+            </p>
+          </header>
+          <div style={cardTable}>
               <UserDonations
               donations={this.state.donations}
               loadDonations={this.loadDonations}
@@ -85,6 +97,11 @@ class DonationsContainer extends React.Component {
               deleteDonation={this.deleteDonation} 
             />
             </div>
+            </div>
+            </div>
+
+
+
 
              <div className="column is-one-quarter">
               <UserDonationForm 

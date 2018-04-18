@@ -2,29 +2,13 @@ import React from "react";
 import List from "../list/List";
 import ListItem from "../list/ListItem";
 
-const cardTable = {
-  maxHeight: 645,
-  overflowy: "scroll",
-  overflowx: "hidden"
-  }
 
-class UserDonations extends React.Component {
-  
-    render() {
-      return (
-    
-          <div className="card is-fullwidth ">
-           <header className="card-header hero is-info">
-            <p className="card-header-title has-text-white">
-              Your Donations
-            </p>
-          </header>
+const UserDonations = props => (
 
-             
            <div className="card-user card-content">
-            {this.props.donations.length ? (
+            {props.donations.length ? (
                 <List>
-                  {this.props.donations.map(donation => (
+                  {props.donations.map(donation => (
                     <ListItem key={donation.id}>
 
             <article className="media">
@@ -43,13 +27,13 @@ class UserDonations extends React.Component {
             </div>
             <nav className="level">
               <div className="level-left">
-                <a className="level-item donationEdit"  onClick={() => this.props.editDonation(donation.id)}>
+                <a className="level-item donationEdit"  onClick={() => props.editDonation(donation.id)}>
                   <span className="icon is-small"><i className="edit fa fa-edit" ></i></span>Edit
                 </a>
               </div>
 
               <div className="level-right">
-              <a className="level-item donationDelete"  onClick={() => this.props.deleteDonation(donation.id)}>
+              <a className="level-item donationDelete"  onClick={() => props.deleteDonation(donation.id)}>
                 <span className="icon is-small"><i className="fa fa-trash"></i></span>Delete
               </a>
               </div>
@@ -63,11 +47,9 @@ class UserDonations extends React.Component {
             ) : (
               <h3>No Results to Display</h3>
             )}
-        </div>
-        </div>       
+        </div>     
     )
-  }
-};
+  
 
 export default UserDonations;
 

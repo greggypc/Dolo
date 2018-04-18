@@ -1,12 +1,6 @@
 import React from "react"; 
-
-//import API from "../utils/APIdonations";
-// import Container from "../components/grid/Container";
-// import Row from "../components/grid/Row";
-// import Col from "../components/grid/Col";
 import UserProfile from "../components/UserProfile";
 import DonationsContainer from "../components/userDonations/DonationsContainer";
-import UserDonationForm from "../components/userDonations/UserDonationForm";
 import Footer from "../components/main/Footer";
 
 
@@ -26,10 +20,7 @@ class Donations extends React.Component {
        </div>
 
       <DonationsContainer />
-    
-      
 
-       
       </div> 
       
       <Footer />

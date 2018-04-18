@@ -1,16 +1,17 @@
 import React from 'react';
 
-class UserDonationForm extends React.Component {
-  render() {
-    return (
-      <div >
+const UserDonationForm = props => (
+
+     
         <div className="card is-fullwidth" >
-         <form id="donation-form">
           <header className="card-header hero is-info">
              <p className="card-header-title has-text-white">
                 Post New Donation
              </p>
           </header>
+          <form id="donation-form"
+                onClick={ () => props.handleFormSubmit }  >
+
            <div className="card-content">
               <div className="field">
                  <label className="label">Item</label>
@@ -20,9 +21,9 @@ class UserDonationForm extends React.Component {
                          type="text" 
                          id="donation-name" 
                          placeholder="Item Name"
-                         defaultValue={this.props.name}
-                         onChange={this.props.handleInputChange} />
-                     </div>
+                         defaultValue={props.name}
+                         onChange={props.handleInputChange} />
+                    </div>
                </div>
 
                 <div className="field">
@@ -30,8 +31,8 @@ class UserDonationForm extends React.Component {
                    <div className="control">
                      <div className="select">
                        <select className="form-control" id="donation-category"
-                         ref="selectCategory" name="item_categoryID" 
-                         defaultValue={this.props.item_categoryID} onChange={ event => this.props.handleInputChange(event)}>
+                         name="item_categoryID" 
+                         value={props.item_categoryID} onChange={ event => props.handleInputChange(event)}>
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>
@@ -51,8 +52,8 @@ class UserDonationForm extends React.Component {
                           className="textarea" 
                           id="donation-description" 
                           placeholder="Textarea"
-                          defaultValue={this.props.description}
-                          onChange={this.props.handleInputChange}>
+                          defaultValue={props.description}
+                          onChange={props.handleInputChange}>
                         </textarea>
                       </div>
                   </div>
@@ -82,16 +83,12 @@ class UserDonationForm extends React.Component {
                     <span className="icon">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>
                     </span>
-                  <button  onClick={ () => this.props.handleFormSubmit }   type="submit">Post</button>
+                  <button type="submit" value="submit" >Post</button>
                   </a>
               </div>
             </div>
            </form>
-         </div>
-       </div>
+      </div>
       )
-    }
-  };
-  
 
  export default UserDonationForm;

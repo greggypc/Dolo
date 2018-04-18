@@ -1,57 +1,48 @@
 /* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
-nav ul a,
-nav .brand-logo {
-  color: #fff;
+#dolo {
+  object-fit: cover;
+  height: 60px;
+  width: 100%;
 }
-
-p {
-  line-height: 2rem;
+.box-title {
+  font-size: 24px;
+  font-weight: bold;
 }
-
-.sidenav-trigger {
-  color: #009bca;
+#subtitle1 {
+  text-align: center;
+  margin-left: 12rem;
+  margin-right: 12rem;
 }
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(47, 168, 168, 0.9);
+#sponsors {
+  background: hsla(0,0%,100%,.1);
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
 }
-  .parallax-container .section {
-    width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+.logo2 {
+  max-width: 140px;
+  max-height: 60px;
 }
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+#space2 {
+  margin-bottom: 0rem;
+  margin-top: 1.5rem;
 }
-
-.icon-block {
-  padding: 0 15px;
+.border-shadow {
+  box-shadow: 0 8px 33px 0 rgba(0,0,0,.07);
+  border-radius: 8px;
+  background: #fff;
 }
-.icon-block .material-icons {
-  font-size: inherit;
+#main-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 60px;
+  margin-bottom: 3rem;
 }
-
-footer.page-footer {
-  margin: 0;
+#hero-margin {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+#box-signin {
+  max-height: 225px;
+  min-height: 225px;
 }

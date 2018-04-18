@@ -1,12 +1,6 @@
 import React from "react"; 
-
-//import API from "../utils/APIneeds";
-// import Container from "../components/grid/Container";
-// import Row from "../components/grid/Row";
-// import Col from "../components/grid/Col";
 import UserProfile from "../components/UserProfile";
 import NeedsContainer from "../components/userNeeds/NeedsContainer";
-import UserDonationForm from "../components/userNeeds/UserNeedForm";
 import Footer from "../components/main/Footer";
 
 
@@ -26,9 +20,7 @@ class Needs extends React.Component {
        </div>
 
       <NeedsContainer />
-
       </div> 
-      
       <Footer />
     </div>
     )

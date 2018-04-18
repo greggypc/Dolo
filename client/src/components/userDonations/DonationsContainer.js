@@ -19,8 +19,9 @@ class DonationsContainer extends React.Component {
       type: "material",
       id: "",
       uid: "3",
-      updating: false
+      updating: 0
     };
+    
       
       componentDidMount() {
         this.loadDonations();
@@ -30,7 +31,7 @@ class DonationsContainer extends React.Component {
       // temporary hard coded to uid 3
       API.getDonations(3)
           .then(res =>
-            this.setState({ donations: res.data, name: "", description: "", item_categoryID: "", type: "", id: "", uid: "" })
+            this.setState({ donations: res.data })
           )
       .catch(err => console.log(err));
     };
@@ -47,12 +48,16 @@ class DonationsContainer extends React.Component {
      });
      };
 
-    handleFormSubmit = event => {
+    handleFormSubmit = (id,event) => {
       console.log(this.state.name);
       console.log(this.state.item_categoryID);
       event.preventDefault();
-  
+      
+      // if user provided a name abd desc
       if (this.state.name && this.state.description) {
+
+        // if updaing is false - must be a new entry - write it to db and reload use donations
+        if (!this.state.updating) {
         API.saveDonation({
           name: this.state.name,
           description: this.state.description,
@@ -62,12 +67,20 @@ class DonationsContainer extends React.Component {
         })
           .then(res => this.loadDonations())
           .catch(err => console.log(err));
-      }
+      } 
+        // else set updating back to false 
+        // and post updated donation to db and reload all user donations
+        this.setState({updating: 0});
+        API.updateDonation(id)
+          .then (res => this.loadDonations())
+        }
+        alert("WTF? - fill in all data!")
     };  
 
     editDonation = id => {
-      API.editDonation(id)
-        .then(res => this.handleInputChange())
+      API.getDonation(id)
+        .then(res => this.setState({name: res.data.name, description: res.data.description, 
+                                    item_categoryID: res.data.category, id: res.data.id, updating: 1}))
         .catch(err => console.log(err));
     };
 
@@ -93,15 +106,12 @@ class DonationsContainer extends React.Component {
               <UserDonations
               donations={this.state.donations}
               loadDonations={this.loadDonations}
-              editDonations={this.editDonations} 
+              editDonation={this.editDonation} 
               deleteDonation={this.deleteDonation} 
             />
             </div>
             </div>
             </div>
-
-
-
 
              <div className="column is-one-quarter">
               <UserDonationForm 
@@ -110,6 +120,7 @@ class DonationsContainer extends React.Component {
               item_categoryID={this.state.item_categoryID}
               type={this.state.type}
               uid={this.state.uid}
+              id={this.state.id}
               loadDonations={this.loadDonations}
               handleFormSubmit={this.handleFormSubmit}
               editDonations={this.editDonations} 

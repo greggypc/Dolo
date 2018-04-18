@@ -10,7 +10,7 @@ const UserDonationForm = props => (
              </p>
           </header>
           <form id="donation-form"
-                onClick={ () => props.handleFormSubmit }  >
+                onSubmit={ event => props.handleFormSubmit(props.id, event) }  >
 
            <div className="card-content">
               <div className="field">
@@ -32,7 +32,7 @@ const UserDonationForm = props => (
                      <div className="select">
                        <select className="form-control" id="donation-category"
                          name="item_categoryID" 
-                         value={props.item_categoryID} onChange={ event => props.handleInputChange(event)}>
+                         defaultValue={props.item_categoryID} onChange={ props.handleInputChange}>
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>

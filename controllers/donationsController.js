@@ -25,6 +25,15 @@ module.exports = {
     .catch(err => res.status(422).json(err));
   },
 
+  // GET a Donation to edit
+  findById: function(req, res) {
+    db.Donation.findById({
+      where: { id: req.params.uid }
+    })
+    .then(dbDonation => res.json(dbDonation))
+    .catch(err => res.status(422).json(err));
+  },
+
   // PUT updating Donation
   update: function(req, res) {
     db.Donation.update({

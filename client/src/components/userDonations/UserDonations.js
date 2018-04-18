@@ -4,7 +4,9 @@ import ListItem from "../list/ListItem";
 
 
 const UserDonations = props => (
-
+  
+  
+           
            <div className="card-user card-content">
             {props.donations.length ? (
                 <List>

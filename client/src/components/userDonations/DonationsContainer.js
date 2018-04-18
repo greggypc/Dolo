@@ -13,11 +13,13 @@ const cardTable = {
 class DonationsContainer extends React.Component {
     state = {
       donations: [],
+
       name: "",
       description: "",
       item_categoryID: "",
-      type: "material",
       id: "",
+
+      type: "material",
       uid: "3",
       updating: 0
     };
@@ -51,6 +53,8 @@ class DonationsContainer extends React.Component {
     handleFormSubmit = (id,event) => {
       console.log(this.state.name);
       console.log(this.state.item_categoryID);
+      console.log(this.state.id);
+
       event.preventDefault();
       
       // if user provided a name abd desc
@@ -73,8 +77,7 @@ class DonationsContainer extends React.Component {
         this.setState({updating: 0});
         API.updateDonation(id)
           .then (res => this.loadDonations())
-        }
-        alert("WTF? - fill in all data!")
+        }else {alert("WTF? - fill in all data!")}
     };  
 
     editDonation = id => {

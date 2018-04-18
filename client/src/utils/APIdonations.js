@@ -17,8 +17,8 @@ export default {
   saveDonation: function(donationData) {
     return axios.post("/api/donations", donationData);
   },
-    // Deletes a donation with the given id
-    deleteDonation: function(id) {
-      return axios.delete("/api/donations/" + id);
-    }
+  // Deletes a donation with the given id
+  deleteDonation: function(id) {
+    return axios.delete("/api/donations/" + id);
+  }
 };

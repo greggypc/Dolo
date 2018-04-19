@@ -36,7 +36,7 @@ const Nav = () => (
 <nav className="navbar border-shadow">
 <div class="container">
   <div className="navbar-brand">
-    <Link className="navbar-item" to="/">
+    <Link className="navbar-item" to="/home">
       <img src="../../images/dolo.png" alt="Dolo" />
     </Link>
     <div className="navbar-burger burger" data-target="navbarMenu">

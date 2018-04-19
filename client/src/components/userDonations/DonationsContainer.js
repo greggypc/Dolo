@@ -80,7 +80,7 @@ class DonationsContainer extends React.Component {
           .then (res => this.loadDonations())
       } return;
     };  
-    {alert("WTF? - fill in all data!");}
+    {alert("fill in all data!");}
   };
 
     editDonation = id => {

@@ -38,19 +38,7 @@ export const makeMainRoutes = () => {
    
       <Router history={history}>
       <div>
-      <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-      <Route path="/home" render={(props) => <Home0 auth={auth} {...props} />} />
-      <Route path="/profile" render={(props) => (
-        !auth.isAuthenticated() ? (
-          <Redirect to="/home"/>
-        ) : (
-          <Profile auth={auth} {...props} />
-        )
-      )} />
-      <Route path="/callback" render={(props) => {
-        handleAuthentication(props);
-        return <Callback {...props} /> 
-      }}/> 
+      
       
       <Nav />
 
@@ -64,6 +52,19 @@ export const makeMainRoutes = () => {
         <Route exact path="/contact" component={Contact} />
         {/* {makeAuthRoutes} */}
       </Switch>
+      <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+      <Route path="/home" render={(props) => <Home0 auth={auth} {...props} />} />
+      <Route path="/profile" render={(props) => (
+        !auth.isAuthenticated() ? (
+          <Redirect to="/home"/>
+        ) : (
+          <Profile auth={auth} {...props} />
+        )
+      )} />
+      <Route path="/callback" render={(props) => {
+        handleAuthentication(props);
+        return <Callback {...props} /> 
+      }}/> 
       </div>
       </Router>
   

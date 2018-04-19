@@ -37,7 +37,7 @@ const UserDonationForm = props => (
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>
-                           <option value="4">Containers</option>
+                           <option value="4">Services</option>
                            <option value="5">Bedding</option>
                            <option value="6">Electronics</option>
                        </select>

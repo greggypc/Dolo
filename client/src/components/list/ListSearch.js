@@ -9,11 +9,11 @@ const cardTable = {
 
 const List = ({ children }) => {
   return (
-   <div class="column is-one-fifth">
+   <React.Fragment >
 
       {children}
 
-    </div>
+    </React.Fragment>
   );
 };
 

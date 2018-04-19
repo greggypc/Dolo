@@ -3,6 +3,14 @@ import API from "../../utils/APIsearchDonations";
 import ListSearch from "../list/ListSearch";
 import ListSearchItem from "../list/ListSearchItem";
 
+const cardSize = {
+  width: 300
+  }
+
+const cardContent = {
+  padding: 10
+  }
+
 class SearchDonationsContainer extends React.Component {
   state = {
     needs: [],
@@ -42,7 +50,15 @@ class SearchDonationsContainer extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="container">
+      <div className="hero is-info is-mobile">
+      <div className="container has-text-centered is-info" id="hero-margin">
+      <h1 className="title">
+            Donation Search
+          </h1>
+          <h2 className="subtitle">
+              Search for donations posted in your local area.
+          </h2>
       <div className="select is-medium">
 			    <select id='categorySelect' className='categorySelectStandard'>
             <option value=''>All Categories</option>
@@ -57,26 +73,29 @@ class SearchDonationsContainer extends React.Component {
             <option  value='9'>Sports and Recreation</option>
 			    </select>
 			</div>
+      </div>
+      </div>
     <br /><br />
+    
+    
     <div className="columns">
-    {/* <div className="column is-one-fifth"> */}
     {this.state.needs.length ? (
                 <ListSearch>
-                  {this.needs.map(need => (
+                  {this.state.needs.map(need => (
                     <ListSearchItem key={need.id}>
 
-<div className="card">
+<div style={cardSize} className="card">
  <div className="card-image">
    <figure className="image is-4by3">
-     <img src="https://re-mm-assets.s3.amazonaws.com/product_photo/23242/large_Product6406216_1471502516.jpg?1524069837714"  alt="Placeholder image" />
+     <img src="http://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/9/42476429-1-f.jpg"  alt="Placeholder image" />
    </figure>
  </div>
  <div className="card-content">
   
    </div>
-   <div className="content">
+   <div style={cardContent} className="content">
      <h3>{need.name}</h3>
-     {need.description} <a>@username</a>.
+     {need.description} <a>@username</a>
      <a href="#">#css</a> <a href="#">#responsive</a>
      <br />
      <strong>createdAt</strong>
@@ -96,6 +115,7 @@ class SearchDonationsContainer extends React.Component {
             )}
             
     </div>
+
 
    </div>
       

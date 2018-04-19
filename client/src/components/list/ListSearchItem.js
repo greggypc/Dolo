@@ -1,7 +1,7 @@
 import React from "react";
 
 const ListItem = props => (
-  <div>
+  <div className="column is-one-third">
     {props.children}
   </div>
 );

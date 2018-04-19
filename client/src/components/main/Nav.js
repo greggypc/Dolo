@@ -31,49 +31,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 const Nav = () => (
+<div class="hero-head is-light">
 
-<nav className="navbar is-transparent">
+<nav className="navbar border-shadow">
+<div class="container">
   <div className="navbar-brand">
     <Link className="navbar-item" to="/">
       <img src="../../images/dolo.png" alt="Dolo" />
     </Link>
-    <div className="navbar-dolo" data-target="navbarExampleTransparentExample">
+    <div className="navbar-burger burger" data-target="navbarMenu">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </div>
 
-  <div id="navbarExampleTransparentExample" className="navbar-menu">
-    <div className="navbar-start">
+  <div id="navbarMenu" className="navbar-menu">
+    <div className="navbar-end">
       <Link className={window.location.pathname === "/" ? "active navbar-item" : "navbar-item"} 
         to="/">
         Home
       </Link>
+
       <div className="navbar-item has-dropdown is-hoverable">
-        <li className="navbar-link">
-          Donor Links
-        </li>
-        <div className="navbar-dropdown is-boxed">
+        <a className="navbar-item">
+          Donors
+        </a>
+        <div className="navbar-dropdown">
           <Link className={window.location.pathname === "/donations" ? "active navbar-item" : "navbar-item"}
            to="/donations">
-            Donations
+            My Donations
           </Link>
           <Link className={window.location.pathname === "/search-needs" ? "active navbar-item" : "navbar-item"}
            to="/search-needs">
-            Search Org Needs
+            Search Organizations' Needs
           </Link>
         </div>
       </div>
 
        <div className="navbar-item has-dropdown is-hoverable">
-        <li className="navbar-link">
-          Org Links
-        </li>
-        <div className="navbar-dropdown is-boxed">
+        <a className="navbar-item">
+          Organizations
+        </a>
+        <div className="navbar-dropdown">
           <Link className={window.location.pathname === "/needs" ? "active navbar-item" : "navbar-item"}
            to="/needs">
-            Needs
+            My Needs
           </Link>
           <Link className={window.location.pathname === "/search-donations" ? "active navbar-item" : "navbar-item"}
            to="/search-donations">
@@ -95,7 +98,7 @@ const Nav = () => (
    
     </div>
 
-    <div className="navbar-end">
+    {/* <div className="navbar-end">
       <div className="navbar-item">
         <div className="field is-grouped">
           <p className="control">
@@ -118,9 +121,11 @@ const Nav = () => (
           </p>
         </div>
       </div>
+    </div> */}
     </div>
- 
+
 </nav>
+</div>
 
 );
 

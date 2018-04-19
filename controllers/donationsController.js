@@ -24,11 +24,12 @@ module.exports = {
     .then(dbDonation => res.json(dbDonation))
     .catch(err => res.status(422).json(err));
   },
+  
 
   // GET a Donation to edit
-  findById: function(req, res) {
-    db.Donation.findById({
-      where: { id: req.params.uid }
+  findOne: function(req, res) {
+    db.Donation.findOne({
+      where: { id: req.params.id }
     })
     .then(dbDonation => res.json(dbDonation))
     .catch(err => res.status(422).json(err));

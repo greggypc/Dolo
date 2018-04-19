@@ -10,7 +10,7 @@ router
 // Matches with "/api/needs/:id"
  router
    .route("/:id")
- //  .get(needsController.findById)
+   .get(needsController.findOne)
    .put(needsController.update)
    .delete(needsController.destroy);
 

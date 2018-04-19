@@ -13,12 +13,10 @@ const cardTable = {
 class DonationsContainer extends React.Component {
     state = {
       donations: [],
-
       name: "",
       description: "",
       item_categoryID: "",
       id: "",
-
       type: "material",
       uid: "3",
       updating: 0
@@ -31,7 +29,7 @@ class DonationsContainer extends React.Component {
 
     loadDonations = () => {
       // temporary hard coded to uid 3
-      API.getDonations(3)
+      API.getDonations(this.state.uid)
           .then(res =>
             this.setState({ donations: res.data })
           )

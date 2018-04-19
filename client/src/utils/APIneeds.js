@@ -10,15 +10,16 @@ export default {
     return axios.get("/api/needs/" + id);
   },
   // Gets a Need with the given id 
-  editNeed: function(id) {
+  updateNeed: function(id) {
     return axios.put("/api/needs/" + id);
-  },
-  // Deletes a Need with the given id
-  deleteNeed: function(id) {
-    return axios.delete("/api/needs/" + id);
   },
   // Saves a Need to the database
   saveNeed: function(NeedData) {
     return axios.post("/api/needs", NeedData);
+  },
+  // Deletes a Need with the given id
+  deleteNeed: function(id) {
+    return axios.delete("/api/needs/" + id);
   }
+
 };

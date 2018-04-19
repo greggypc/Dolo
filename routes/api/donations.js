@@ -3,14 +3,14 @@ const donationsController = require("../../controllers/donationsController");
 
 // Matches with "/api/donations/"
 router
-  .route("/")
-  .get(donationsController.findAll)
-  .post(donationsController.create);
+  .route("/:uid")
+  .get(donationsController.findAll) 
+  .post(donationsController.create); 
 
 // Matches with "/api/donations/:id"
  router
    .route("/:id")
- //  .get(donationsController.findById)
+   .get(donationsController.findOne)
    .put(donationsController.update)
    .delete(donationsController.destroy);
 

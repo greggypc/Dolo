@@ -1,8 +1,8 @@
 import React from 'react';
 
-const UserDonationForm = props => (
+const UserDonationForm = props => {
 
-     
+     return (
         <div className="card is-fullwidth" >
           <header className="card-header hero is-info">
              <p className="card-header-title has-text-white">
@@ -10,7 +10,7 @@ const UserDonationForm = props => (
              </p>
           </header>
           <form id="donation-form"
-                onSubmit={ event => props.handleFormSubmit(props.id, event) }  >
+                onSubmit={ event => props.handleFormSubmit(props.id, event) }>
 
            <div className="card-content">
               <div className="field">
@@ -90,5 +90,6 @@ const UserDonationForm = props => (
            </form>
       </div>
       )
+    };
 
  export default UserDonationForm;

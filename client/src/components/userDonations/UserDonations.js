@@ -3,9 +3,9 @@ import List from "../list/List";
 import ListItem from "../list/ListItem";
 
 
-const UserDonations = props => (
+const UserDonations = props => {
   
-  
+  return (
            
            <div className="card-user card-content">
             {props.donations.length ? (
@@ -51,7 +51,7 @@ const UserDonations = props => (
             )}
         </div>     
     )
-  
+  };
 
 export default UserDonations;
 

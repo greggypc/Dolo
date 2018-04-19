@@ -4,7 +4,7 @@ module.exports = {
 
   // GET all Needs of a specific user
   findAll: function(req, res) {
-      db.Need.findAll({
+      db.Request.findAll({
         where: { uid: req.params.uid }
       })
       .then(dbNeed => res.json(dbNeed))
@@ -13,7 +13,7 @@ module.exports = {
 
   // CREATE a Need
   create: function(req, res) {
-    db.Need.create({
+    db.Request.create({
       name: req.body.name,
       description: req.body.description,
       uid: req.body.uid,
@@ -26,8 +26,8 @@ module.exports = {
   },
 
     // GET a Need to edit
-    findById: function(req, res) {
-      db.Need.findById({
+    findOne: function(req, res) {
+      db.Request.findOne({
         where: { id: req.params.id }
       })
       .then(dbNeed => res.json(dbNeed))
@@ -36,7 +36,7 @@ module.exports = {
 
   // PUT updating Need
   update: function(req, res) {
-    db.Need.update({
+    db.Request.update({
       description: req.body.description,
       name: req.body.name,
       item_categoryID: req.body.item_categoryID
@@ -49,7 +49,7 @@ module.exports = {
 
   // DELETE Need
   destroy: function(req, res) {
-    db.Need.destroy({
+    db.Request.destroy({
       where: { id: req.params.id }
     })
       .then(dbNeed => res.json(dbNeed))

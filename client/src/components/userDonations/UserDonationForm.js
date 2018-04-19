@@ -1,8 +1,7 @@
 import React from 'react';
 
-const UserDonationForm = props => {
+const UserDonationForm = props => (
 
-     return (
         <div className="card is-fullwidth" >
           <header className="card-header hero is-info">
              <p className="card-header-title has-text-white">
@@ -16,13 +15,15 @@ const UserDonationForm = props => {
               <div className="field">
                  <label className="label">Item</label>
                     <div className="control">
-                       <input className="input"
+                       <input 
+                         value={props.name}
+                         onChange={props.handleInputChange} 
+                         className="input"
                          name="name"  
                          type="text" 
                          id="donation-name" 
                          placeholder="Item Name"
-                         defaultValue={props.name}
-                         onChange={props.handleInputChange} />
+                         />
                     </div>
                </div>
 
@@ -30,9 +31,9 @@ const UserDonationForm = props => {
                    <label className="label">Category</label>
                    <div className="control">
                      <div className="select">
-                       <select className="form-control" id="donation-category"
-                         name="item_categoryID" 
-                         defaultValue={props.item_categoryID} onChange={ props.handleInputChange}>
+                       <select value={props.item_categoryID} onChange={ event => props.handleInputChange}
+                         className="form-control" id="donation-category"
+                         name="item_categoryID">
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>
@@ -48,12 +49,12 @@ const UserDonationForm = props => {
                     <label className="label">Description</label>
                       <div className="control">
                         <textarea 
+                          value={props.description}
+                          onChange={props.handleInputChange}
                           name="description"
                           className="textarea" 
                           id="donation-description" 
-                          placeholder="Textarea"
-                          defaultValue={props.description}
-                          onChange={props.handleInputChange}>
+                          placeholder="Textarea">
                         </textarea>
                       </div>
                   </div>
@@ -89,7 +90,6 @@ const UserDonationForm = props => {
             </div>
            </form>
       </div>
-      )
-    };
-
+      );
+   
  export default UserDonationForm;

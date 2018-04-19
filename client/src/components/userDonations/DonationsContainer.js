@@ -19,11 +19,14 @@ class DonationsContainer extends React.Component {
       id: "",
       type: "material",
       uid: "3",
-      updating: 0
+      updating: null
     };
     
       
       componentDidMount() {
+        this.setState({
+          updating: 0
+           });
         this.loadDonations();
       }
 
@@ -69,19 +72,21 @@ class DonationsContainer extends React.Component {
         })
           .then(res => this.loadDonations())
           .catch(err => console.log(err));
-      } 
-        // else set updating back to false 
+      } else {
+         // else set updating back to false 
         // and post updated donation to db and reload all user donations
         this.setState({updating: 0});
         API.updateDonation(id)
           .then (res => this.loadDonations())
-        }else {alert("WTF? - fill in all data!")}
+      } return;
     };  
+    {alert("WTF? - fill in all data!");}
+  };
 
     editDonation = id => {
       API.getDonation(id)
         .then(res => this.setState({name: res.data.name, description: res.data.description, 
-                                    item_categoryID: res.data.category, id: res.data.id, updating: 1}))
+                                    item_categoryID: res.data.item_categoryID, id: res.data.id, updating: 1}))
         .catch(err => console.log(err));
     };
 

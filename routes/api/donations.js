@@ -5,13 +5,16 @@ const donationsController = require("../../controllers/donationsController");
 router
   .route("/uid/:uid")
   .get(donationsController.findAll) 
-  .post(donationsController.create); 
+
+router
+  .route("/")
+  .post(donationsController.create)
+  .put(donationsController.update); 
 
 // Matches with "/api/donations/:id"
  router
    .route("/id/:id")
    .get(donationsController.findOne)
-   .put(donationsController.update)
    .delete(donationsController.destroy);
 
 

@@ -43,23 +43,25 @@ class DonationsContainer extends React.Component {
     handleInputChange = event => {
     // Pull the name and value properties off of the event.target (the element which triggered the event)
     const { name, value } = event.target;
-    console.log(this.state.donations);
 
     //Set the state for the appropriate input field
     this.setState({
     [name]: value
      });
+    //  console.log(this.state.name+this.state.description+this.state.id+this.state.item_categoryID);
      };
 
     handleFormSubmit = (id,event) => {
       console.log(this.state.name);
       console.log(this.state.item_categoryID);
-      console.log(this.state.id);
-
-      event.preventDefault();
+      console.log("it editing, id is: " + this.state.id);
+      console.log(this.state.description);
       
+      event.currentTarget.reset();
+      event.preventDefault();
+     
       // if user provided a name abd desc
-      if (this.state.name && this.state.description) {
+      if (this.state.name || this.state.description) {
 
         // if updaing is false - must be a new entry - write it to db and reload use donations
         if (!this.state.updating) {
@@ -71,12 +73,17 @@ class DonationsContainer extends React.Component {
           uid: 3
         })
           .then(res => this.loadDonations())
-          .catch(err => console.log(err));
+          .catch(err => console.log(err));          
       } else {
          // else set updating back to false 
         // and post updated donation to db and reload all user donations
         this.setState({updating: 0});
-        API.updateDonation(id)
+        API.updateDonation({
+          id: this.state.id,
+          name: this.state.name,
+          description: this.state.description,
+          item_categoryID: parseInt(this.state.item_categoryID),
+        })
           .then (res => this.loadDonations())
       } return;
     };  
@@ -128,6 +135,7 @@ class DonationsContainer extends React.Component {
               uid={this.state.uid}
               id={this.state.id}
               loadDonations={this.loadDonations}
+              handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
               editDonations={this.editDonations} 
             />

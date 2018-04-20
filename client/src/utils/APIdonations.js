@@ -10,15 +10,15 @@ export default {
     return axios.get("/api/donations/id/" + id);
   },
   // Update (POST) edited donation
-  updateDonation: id => {
-    return axios.put("api/donations/id/" + id);
+  updateDonation: donationData => {
+    return axios.put("api/donations/", donationData);
   },
   // Saves a donation to the database
   saveDonation: function(donationData) {
-    return axios.post("/api/donations", donationData);
+    return axios.post("/api/donations/", donationData);
   },
   // Deletes a donation with the given id
   deleteDonation: function(id) {
-    return axios.delete("/api/donations/" + id);
+    return axios.delete("/api/donations/id/" + id);
   }
 };

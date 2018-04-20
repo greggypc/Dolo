@@ -38,11 +38,11 @@ module.exports = {
   // PUT updating Donation
   update: function(req, res) {
     db.Donation.update({
-      description: req.body.description,
       name: req.body.name,
+      description: req.body.description,
       item_categoryID: req.body.item_categoryID
     },
-      { where: { id: req.params.id }
+      { where: { id: req.body.id }
       })
       .then(dbDonation => res.json(dbDonation))
       .catch(err => res.status(422).json(err));

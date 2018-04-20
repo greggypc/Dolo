@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 const Nav = () => (
-<div class="hero-head is-light">
+<div className="hero-head is-light">
 
 <nav className="navbar border-shadow">
-<div class="container">
+<div className="container">
   <div className="navbar-brand">
     <Link className="navbar-item" to="/home">
       <img src="../../images/dolo.png" alt="Dolo" />

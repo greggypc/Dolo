@@ -1,8 +1,8 @@
 import React from "react";
 
 const ListItem = props => (
-  <div className="column is-one-third">
-    {props.children}
+  <div>
+      {props.children}
   </div>
 );
 

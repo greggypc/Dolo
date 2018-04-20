@@ -1,5 +1,9 @@
 import React from 'react';
 
+const hidden = {
+  visibility: hidden
+}
+
 const UserDonationForm = props => (
 
         <div className="card is-fullwidth" >
@@ -9,7 +13,7 @@ const UserDonationForm = props => (
              </p>
           </header>
           <form id="donation-form"
-                onSubmit={ event => props.handleFormSubmit(props.id, event) }>
+                onSubmit={ event => props.handleFormSubmit(props.id, event)}>
 
            <div className="card-content">
               <div className="field">
@@ -34,6 +38,7 @@ const UserDonationForm = props => (
                        <select value={props.item_categoryID} onChange={props.handleInputChange}
                          className="form-control" id="donation-category"
                          name="item_categoryID">
+                         <option value="">Select</option>
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>
@@ -54,7 +59,7 @@ const UserDonationForm = props => (
                           name="description"
                           className="textarea" 
                           id="donation-description" 
-                          placeholder="Textarea">
+                          placeholder="Item Description">
                         </textarea>
                       </div>
                   </div>
@@ -80,16 +85,25 @@ const UserDonationForm = props => (
                   </div>
                             
                  <div className="level-right">
+
+                 <a className="button is-info is-outlined is-small" href="">
+                    <span className="icon">
+                      <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                    </span>
+                    <button className={props.updating === 0 ? "" : "hidden"} type="button" value="cancel" onClick={this.resetForm} >
+                    {props.updating === 0 ? "Reset Form" : "Cancel Edit"}</button>
+                  </a>
+                  
                   <a className="button is-info is-outlined is-small" href="">
                     <span className="icon">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>
                     </span>
-                  <button type="submit" value="submit" >Post</button>
+                  <button type="submit" value="submit" >{props.updating === 0 ? "Post New Donation" : "Post Edited Donation"}</button>
                   </a>
               </div>
             </div>
            </form>
       </div>
       );
-   
+
  export default UserDonationForm;

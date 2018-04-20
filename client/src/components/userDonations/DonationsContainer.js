@@ -57,11 +57,10 @@ class DonationsContainer extends React.Component {
       console.log("it editing, id is: " + this.state.id);
       console.log(this.state.description);
       
-      event.currentTarget.reset();
       event.preventDefault();
      
       // if user provided a name abd desc
-      if (this.state.name || this.state.description) {
+      if (this.state.name && this.state.item_categoryID && this.state.description) {
 
         // if updaing is false - must be a new entry - write it to db and reload use donations
         if (!this.state.updating) {
@@ -73,7 +72,8 @@ class DonationsContainer extends React.Component {
           uid: 3
         })
           .then(res => this.loadDonations())
-          .catch(err => console.log(err));          
+          .catch(err => console.log(err)); 
+          this.resetForm();         
       } else {
          // else set updating back to false 
         // and post updated donation to db and reload all user donations
@@ -85,15 +85,26 @@ class DonationsContainer extends React.Component {
           item_categoryID: parseInt(this.state.item_categoryID),
         })
           .then (res => this.loadDonations())
-      } return;
+          .catch(err => console.log(err)); 
+      } 
+      this.resetForm();
+      return;
     };  
     {alert("fill in all data!");}
   };
 
+  resetForm = () => {
+    this.setState({
+      name: "",
+      description: "",
+      item_categoryID: ""
+    });
+  }
+
     editDonation = id => {
       API.getDonation(id)
         .then(res => this.setState({name: res.data.name, description: res.data.description, 
-                                    item_categoryID: res.data.item_categoryID, id: res.data.id, updating: 1}))
+            item_categoryID: res.data.item_categoryID, id: res.data.id, updating: 1}))
         .catch(err => console.log(err));
     };
 
@@ -134,10 +145,12 @@ class DonationsContainer extends React.Component {
               type={this.state.type}
               uid={this.state.uid}
               id={this.state.id}
+              updating={this.state.updating}
               loadDonations={this.loadDonations}
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
               editDonations={this.editDonations} 
+              resetForm={this.resetForm}
             />
             </div> 
             </React.Fragment>           

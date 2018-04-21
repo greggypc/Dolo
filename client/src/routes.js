@@ -39,20 +39,6 @@ export const makeMainRoutes = () => {
       <Router history={history}>
       <div>
       
-      
-      <Nav />
-
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/donations" component={Donations} />
-        <Route exact path="/search-needs" component={SearchNeeds} />
-        <Route exact path="/needs" component={Needs} />
-        <Route exact path="/search-donations" component={SearchDonations} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/contact" component={Contact} />
-        {/* {makeAuthRoutes} */}
-      </Switch>
-      <Route path="/" render={(props) => <App auth={auth} {...props} />} />
       <Route path="/home" render={(props) => <Home0 auth={auth} {...props} />} />
       <Route path="/profile" render={(props) => (
         !auth.isAuthenticated() ? (
@@ -65,6 +51,21 @@ export const makeMainRoutes = () => {
         handleAuthentication(props);
         return <Callback {...props} /> 
       }}/> 
+      
+      <Nav />
+
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/donations" component={Donations} />
+        <Route exact path="/search-needs" component={SearchNeeds} />
+        <Route exact path="/needs" component={Needs} />
+        <Route exact path="/search-donations" component={SearchDonations} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/contact" component={Contact} />
+        {/* {makeAuthRoutes} */}
+        <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+      </Switch>
+      
       </div>
       </Router>
   

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchDonationsHeader = props => (
+const SearchNeedsHeader = props => (
    <React.Fragment>
       <div className="hero is-info is-mobile">
       <div className="container has-text-centered is-info" id="hero-margin">
@@ -36,4 +36,4 @@ const SearchDonationsHeader = props => (
 
 );
 
-export default SearchDonationsHeader;
+export default SearchNeedsHeader;

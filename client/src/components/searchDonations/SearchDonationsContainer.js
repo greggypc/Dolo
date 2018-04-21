@@ -62,6 +62,7 @@ class SearchDonationsContainer extends React.Component {
         loadDonationsByCategory={this.loadDonationsByCategory}
         handleInputChange={this.handleInputChange}
       />
+      
   
    </React.Fragment>
  

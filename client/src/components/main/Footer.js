@@ -2,17 +2,10 @@ import React from "react";
 
 const Footer = ({ children }) => (
    <footer className="footer">
-        <div className="container">
-          <div className="content has-text-centered">
-            <p>
-              <strong>Donation Location</strong> Copyright 2018  
-            </p>
-          
-          </div>
-        </div>
+        
         <div className="container">
           <div className="columns">
-            <div className="column is-quarter">
+            <div className="column is-third">
               <ul>
                 <li><strong>Web Site</strong></li>
                 <li>
@@ -28,7 +21,7 @@ const Footer = ({ children }) => (
                 </li>
               </ul>
             </div>
-            <div className="column is-quarter">
+            <div className="column is-third">
               <ul>
                 <li><strong>Social Links</strong></li>
                 <li>
@@ -42,7 +35,7 @@ const Footer = ({ children }) => (
                 </li>
               </ul>
             </div>
-            <div className="column is-quarter">
+            <div className="column is-third">
               <ul>
                 <li><strong>Contact</strong></li>
                 <li>+1 (361-944-05514)</li>
@@ -54,6 +47,14 @@ const Footer = ({ children }) => (
             </div>
             </div>
           </div>
+          <div className="container">
+          <div className="content has-text-centered">
+            <p>
+              <strong><small>Donation Location &copy; 2018 All Rights Reserved </small ></strong>
+            </p>
+          
+          </div>
+        </div>
       </footer>
 );
 

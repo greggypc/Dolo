@@ -16,7 +16,7 @@ const UserDonations = props => {
             <article className="media">
           <div className="media-left">
             <figure className="image is-64x64">
-              <img src="http://placehold.it/128x128" alt="Your Donation" />
+              <img src="https://www.givingtuesday.org/sites/default/files/2017-12/MyGivingStory_logo_1920x1080_white-letter.jpg" alt="Your Donation" />
             </figure>
           </div>
           <div className="media-content">

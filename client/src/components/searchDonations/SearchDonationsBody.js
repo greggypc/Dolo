@@ -29,11 +29,11 @@ const SearchDonationsBody = props => {
        <ListSearch>
          {props.donationsByCategory.map(donation => (
            <ListSearchItem key={donation.id}>
-          
+
     <div style={cardSize} className="card">
     <div className="card-image">
     <figure className="image is-4by3">
-     <img src="http://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/9/42476429-1-f.jpg"  alt="Placeholder image" />
+     <img src="https://www.givingtuesday.org/sites/default/files/2017-12/MyGivingStory_logo_1920x1080_white-letter.jpg"  alt="Placeholder image" />
     </figure>
     </div>
     <div className="card-content">
@@ -42,9 +42,9 @@ const SearchDonationsBody = props => {
     <div style={cardContent} className="content">
      <h3>{donation.name}</h3>
      {donation.description} <a>@username</a>
-     <a href="#">#css</a> <a href="#">#responsive</a>
+     <a href="#"> | Metro</a> <a href="#">| Zip Code</a>
      <br />
-     <strong>{donation.createdAt}</strong>
+     <strong>Posted: {donation.createdAt}</strong>
     </div>
     <footer className="card-footer">
     <a href="#" className="card-footer-item">Request Info</a>
@@ -65,13 +65,16 @@ const SearchDonationsBody = props => {
       <h2 className="subtitle">
         Select a Category above to search for available donations.
       </h2>
+      
         </div>
       </div>
+      
         )}
         
 </div>
 
-
+<br /> <br /> <br /> <br />
+<br /> <br />
 </div>
       </React.Fragment>
 

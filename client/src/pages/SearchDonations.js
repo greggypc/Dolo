@@ -1,5 +1,7 @@
 import React from "react";
 import SearchDonationsContainer from "../components/searchDonations/SearchDonationsContainer";
+import Footer from "../components/main/Footer";
+
 
 class SearchDonations extends React.Component {
   render() {
@@ -7,6 +9,7 @@ class SearchDonations extends React.Component {
   
   <div>
   <SearchDonationsContainer />
+  <Footer />
   </div>
 )
 }

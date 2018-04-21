@@ -22,7 +22,7 @@ const UserDonations = props => {
           <div className="media-content">
             <div className="content">
               <p>
-                <strong>Item:</strong> <small>{donation.name}</small>
+                <strong>Item:</strong> {donation.name}
                 <br />
                 <small>{donation.description}</small>
               </p>

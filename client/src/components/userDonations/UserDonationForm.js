@@ -41,12 +41,16 @@ const UserDonationForm = props => (
                                id="donation-category"
                                name="item_categoryID">
                            <option value="">Select</option>
-                           <option value="1">Clothes</option>
-                           <option value="2">Food</option>
-                           <option value="3">Furniture</option>
+                           <option value="1">Food</option>
+                           <option value="2">Clothes</option>
+                           <option value="3">Bedding</option>
                            <option value="4">Services</option>
-                           <option value="5">Bedding</option>
+                           <option value="5">Furniture</option>
                            <option value="6">Electronics</option>
+                           <option value="7">Pet Supplies</option>
+                           <option value="8">Sports and Recreation</option>
+                           <option value="9">Misc</option>
+
                        </select>
                      </div>
                    </div>

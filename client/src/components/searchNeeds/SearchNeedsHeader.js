@@ -18,15 +18,15 @@ const SearchDonationsHeader = props => (
              id="categorySelect" 
              className="categorySelectStandard">
                 <option value="">Select</option>
-                <option value="1">Food</option>
-                <option value="2">Clothes</option>
-                <option value="3">Bedding</option>
-                <option value="4">Services</option>
-                <option value="5">Furniture</option>
-                <option value="6">Electronics</option>
-                <option value="7">Pet Supplies</option>
+                <option value="1">Animal Care and Services</option>
+                <option value="2">Arts and Culture</option>
+                <option value="3">Basic Needs</option>
+                <option value="4">Community/Capacity Building</option>
+                <option value="5">Education</option>
+                <option value="6">Environment</option>
+                <option value="7">Health Care</option>
+                <option value="8">Human Services</option>
                 <option value="9">Sports and Recreation</option>
-                <option value="8">Misc</option>
 		</select>
         </form>
 	  </div>

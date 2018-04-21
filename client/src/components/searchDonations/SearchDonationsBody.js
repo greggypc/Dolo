@@ -4,7 +4,8 @@ import ListSearchItem from "../list/ListSearchItem";
 
 const cardSize = {
   width: 350,
-  marginTop: 50
+  marginTop: 50,
+  boxShadow: "0px 5px 8px rgba(0, 0, 0, 0.3)"
   }
 
 const cardContent = {

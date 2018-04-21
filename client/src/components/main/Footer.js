@@ -3,11 +3,12 @@ import React from "react";
 const Footer = ({ children }) => (
    <footer className="footer">
         
-        <div className="container">
-          <div className="columns">
-            <div className="column is-third">
+       
+          <div className="columns container is-centered">
+          <div className="column is-fifth"></div>
+            <div className="column is-fifth">
               <ul>
-                <li><strong>Web Site</strong></li>
+                <li><strong>Get Started</strong></li>
                 <li>
                   <a href="./signup.html" className="">Sign Up</a>
                 </li>
@@ -21,7 +22,7 @@ const Footer = ({ children }) => (
                 </li>
               </ul>
             </div>
-            <div className="column is-third">
+            <div className="column is-fifth">
               <ul>
                 <li><strong>Social Links</strong></li>
                 <li>
@@ -35,26 +36,26 @@ const Footer = ({ children }) => (
                 </li>
               </ul>
             </div>
-            <div className="column is-third">
+            <div className="column is-fifth">
               <ul>
                 <li><strong>Contact</strong></li>
-                <li>+1 (361-944-05514)</li>
                 <li>
-                  <a href="mailto:contact@dolo.com">contact@donation_location.com</a>
+                  <a href="mailto:contact@dolo.com">contact@dolo.io</a>
                 </li>
-                <li>2405 Robert Dedman Dr. Austin, Texas, 78751</li>
+                <li>(361) 944-05514</li>
+                <li>2405 Robert Dedman Dr. Austin, Texas 78751</li>
               </ul>
             </div>
             </div>
-          </div>
-          <div className="container">
+         
+       
           <div className="content has-text-centered">
             <p>
               <strong><small>Donation Location &copy; 2018 All Rights Reserved </small ></strong>
             </p>
-          
+            <div className="column is-fifth"></div>
+
           </div>
-        </div>
       </footer>
 );
 

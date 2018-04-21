@@ -26,7 +26,7 @@ const UserProfile = ({ children }) => (
        <div className="card is-fullwidth">
          <header className="card-header hero is-info">
            <p className="card-header-title has-text-white">
-             <strong>Contact: </strong>
+             <strong>Your Information</strong>
            </p>
          </header>
          <div className="card-content">

@@ -6,13 +6,15 @@ import Footer from "../components/main/Footer";
 
 //
 const containerStyle = {
-  paddingTop:35
+  paddingTop:35,
+  paddingBottom:35
 };
 
 class Donations extends React.Component {
 
   render() {
     return (
+    <React.Fragment>
     <div style={containerStyle} className="container">
       <div className="columns">
       <div className="column is-one-quarter">
@@ -22,9 +24,9 @@ class Donations extends React.Component {
       <DonationsContainer />
 
       </div> 
-      
-      <Footer />
     </div>
+    <Footer />
+    </React.Fragment>
     )
   }
   

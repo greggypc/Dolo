@@ -1,8 +1,8 @@
 import React from "react";
-//import { List, ListItem } from "../list";
 import API from "../../utils/APIdonations";
 import UserDonations from "./UserDonations";
 import UserDonationForm from "./UserDonationForm";
+
 
 const cardTable = {
   maxHeight: 470,
@@ -153,6 +153,7 @@ class DonationsContainer extends React.Component {
               resetForm={this.resetForm}
             />
             </div> 
+           
             </React.Fragment>           
           
         )

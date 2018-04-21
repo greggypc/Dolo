@@ -35,10 +35,12 @@ const UserDonationForm = props => (
                    <label className="label">Category</label>
                    <div className="control">
                      <div className="select">
-                       <select value={props.item_categoryID} onChange={props.handleInputChange}
-                         className="form-control" id="donation-category"
-                         name="item_categoryID">
-                         <option value="">Select</option>
+                       <select value={props.item_categoryID} 
+                               onChange={props.handleInputChange}
+                               className="form-control" 
+                               id="donation-category"
+                               name="item_categoryID">
+                           <option value="">Select</option>
                            <option value="1">Clothes</option>
                            <option value="2">Food</option>
                            <option value="3">Furniture</option>

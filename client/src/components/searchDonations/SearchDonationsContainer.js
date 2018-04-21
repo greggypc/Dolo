@@ -1,60 +1,65 @@
 import React from 'react';
 import API from "../../utils/APIsearchDonations";
-
 import SearchDonationsHeader from "./SearchDonationsHeader";
 import SearchDonationsBody from './SearchDonationsBody';
-
 
 
 class SearchDonationsContainer extends React.Component {
   state = {
     donationsByCategory: [],
+    name: "",
+    description: "",
     item_categoryID: "",
     id: "",
-    uid: "3"
+    uid: ""
   };
 
   // componentDidMount() {
-  //   this.loadDonationByCategory();
+  //   this.loadDonationsByCategory();
   // }
 
+    // handle any changes to the input fields
+    handleInputChange = event => {
+      // Pull the name and value properties off of the event.target (the element which triggered the event)
+      const { name, value } = event.target;
+      console.log(this.state.item_categoryID + " anything?");
+  
+      //Set the state for the appropriate input field
+      this.setState({ item_categoryID: parseInt(value)}, this.loadDonationsByCategory);
+       console.log(this.state.item_categoryID); 
+       };
 
-  loadDonationByCategory = (id) => {
-    API.getDonationsByCategory(id)
-        .then(res =>
-          this.setState({ needs: res.data })
-        )
-    .catch(err => console.log(err));
-  };
-
-  // handle any changes to the input fields
-  handleInputChange = event => {
-    // Pull the name and value properties off of the event.target (the element which triggered the event)
-    const { name, value } = event.target;
-    console.log(this.state.item_categoryID);
-
-    //Set the state for the appropriate input field
-    this.setState({
-    [name]: value
-     });
-     const id = this.state.item_categoryID;
-     this.loadDonationByCategory(id);
-     };
+    loadDonationsByCategory = () => {
+      API.getDonationsByCategory(this.state.item_categoryID)
+          .then(res =>
+            this.setState({ donationsByCategory: res.data })
+          )
+      .catch(err => console.log(err));
+    };
+  
+  
+       resetSelect = () => {
+        this.setState({
+          item_categoryID: ""
+        });
+      }
   
   
   render() {
     return (
       <React.Fragment>
-      <SearchDonationsHeader   
+      <SearchDonationsHeader 
+        item_categoryID={this.state.item_categoryID}  
         handleInputChange={this.handleInputChange}
       />
 
       <SearchDonationsBody 
         donationsByCategory={this.state.donationsByCategory}
+        name={this.state.name}
+        description={this.state.description}
         item_categoryID={this.state.item_categoryID}
         id={this.state.id}
-        uid={this.state.uid}
-        loadNeeds={this.loadNeeds}
+        loadDonationsByCategory={this.loadDonationsByCategory}
         handleInputChange={this.handleInputChange}
       />
   

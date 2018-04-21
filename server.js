@@ -27,34 +27,34 @@ app.use(routes);
 
 
 // TEST! - talking to server?
-app.get('/hi', (req, res) =>{
-  res.send('hello from your server!');
-  console.log("hello");
-});
+// app.get('/hi', (req, res) =>{
+//   res.send('hello from your server!');
+//   console.log("hello");
+// });
 
 
-// TEST! - GET route for returning all Donations
-app.get("/api/donations/", function(req, res) {
-  db.Donation.findAll({})
-  .then(function(dbDonation) {
-    console.log("getting donations");
-    res.json(dbDonation);
-  });
-});
+// // TEST! - GET route for returning all Donations
+// app.get("/api/donations/", function(req, res) {
+//   db.Donation.findAll({})
+//   .then(function(dbDonation) {
+//     console.log("getting donations");
+//     res.json(dbDonation);
+//   });
+// });
 
 
- //GET route for returning all Donations of a specific user
- app.get("/api/donations/:uid", function(req, res) {
-  db.Donation.findAll({
-    where: {
-      uid: 3
-    }
-  })
-  .then(function(dbDonation) {
-    console.log("getting donations from uid 3 only");
-    res.json(dbDonation);
-  });
-});
+//  //GET route for returning all Donations of a specific user
+//  app.get("/api/donations/:uid", function(req, res) {
+//   db.Donation.findAll({
+//     where: {
+//       uid: 3
+//     }
+//   })
+//   .then(function(dbDonation) {
+//     console.log("getting donations from uid 3 only");
+//     res.json(dbDonation);
+//   });
+// });
 
 // Requiring our models for syncing
 const db = require("./models");

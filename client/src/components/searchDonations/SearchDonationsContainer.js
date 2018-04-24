@@ -9,7 +9,8 @@ class SearchDonationsContainer extends React.Component {
     donationsByCategory: [],
     name: "",
     description: "",
-    item_categoryID: "",
+    item_categoryID: null,
+    currentCategory: "",
     id: "",
     uid: ""
   };
@@ -25,24 +26,24 @@ class SearchDonationsContainer extends React.Component {
       console.log(this.state.item_categoryID + " anything?");
   
       //Set the state for the appropriate input field
-      this.setState({ item_categoryID: parseInt(value)}, this.loadDonationsByCategory);
+      this.setState({ item_categoryID: parseInt(value), currrentCategory:parseInt(value)}, this.loadDonationsByCategory);
        console.log(this.state.item_categoryID); 
        };
 
     loadDonationsByCategory = () => {
       API.getDonationsByCategory(this.state.item_categoryID)
           .then(res =>
-            this.setState({ donationsByCategory: res.data })
+            this.setState({ donationsByCategory: res.data }, this.resetSelect)
           )
       .catch(err => console.log(err));
     };
   
   
-       resetSelect = () => {
-        this.setState({
-          item_categoryID: ""
-        });
-      }
+    resetSelect = () => {
+     this.setState({
+       item_categoryID: ""
+     });
+     }
   
   
   render() {
@@ -58,6 +59,7 @@ class SearchDonationsContainer extends React.Component {
         name={this.state.name}
         description={this.state.description}
         item_categoryID={this.state.item_categoryID}
+        currrentCategory={this.state.currrentCategory}
         id={this.state.id}
         loadDonationsByCategory={this.loadDonationsByCategory}
         handleInputChange={this.handleInputChange}

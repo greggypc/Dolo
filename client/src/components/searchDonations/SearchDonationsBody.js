@@ -23,14 +23,17 @@ const wrapCards = {
 const SearchDonationsBody = props => {
   return (
    <React.Fragment>
-   <div className="container" >
-
-    <div style={wrapCards}>
+   <div className="container">
+          <p class="title is-3 has-text-info is-centered">Search Category: {props.currrentCategory}</p>
+          <p class="subtitle is-5 is-centered"> There are {props.donationsByCategory.length} items available.</p>
+     <div style={wrapCards}>
+  
     {props.donationsByCategory.length ? (
+     
        <ListSearch>
          {props.donationsByCategory.map(donation => (
            <ListSearchItem key={donation.id}>
-
+     
     <div style={cardSize} className="card">
     <div className="card-image">
     <figure className="image is-4by3">

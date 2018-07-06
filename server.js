@@ -3,12 +3,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const mysql = require("mysql2");
 
 
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = mysql.createConnection(process.env.JAWSDB_URL) || 3001;
+// const PORT = process.env.PORT || 3001;
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
